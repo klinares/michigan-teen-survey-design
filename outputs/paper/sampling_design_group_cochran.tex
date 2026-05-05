@@ -1,0 +1,1388 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-1in}%
+\addtolength{\textwidth}{1in}%
+\addtolength{\textheight}{1.7in}%
+\addtolength{\topmargin}{-1in}%
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{agsm}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Michigan Teen Smoking and Drug Use Survey Sample Design},
+  pdfauthor={Kevin Linares; Jianing Zou; Weishan Jiang; Xiaoqing Liu},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+
+\begin{document}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{February 27, 2026}
+\title{\bf Michigan Teen Smoking and Drug Use Survey Sample Design}
+\author{
+Kevin Linares\\
+and\\Jianing Zou\\
+and\\Weishan Jiang\\
+and\\Xiaoqing Liu\\
+University of Maryland\\
+}
+\maketitle
+
+\bigskip
+\bigskip
+\begin{abstract}
+The State of Michigan Department of Education (MDE) requires data to
+monitor teenage smoking and drug use to assess compliance with tobacco
+industry settlements. This report outlines a two-stage stratified
+cluster sampling design developed for the MDE to monitor smoking and
+drug use among students in grades 7-12 statewide. The design addresses
+the need for cost-effective, statistically sound estimates at both the
+state and regional levels, meeting specified precision targets (CV=0.05)
+within a \$500,000 budget. Schools were stratified into nine regions and
+selected with probability proportional to size (PPeS), followed by
+systematic selection of students within schools. The final design
+targets approximately 88 schools and 4,721 students, incorporating
+adjustments for non-response and procedures for handling undersized
+schools to maintain equal selection probabilities. The report details
+allocation, selection methods, and an estimation plan using a paired
+selection model for variance calculation.
+\end{abstract}
+
+
+\newpage
+\spacingset{1.9} % DON'T change the spacing!
+
+
+\section{Introduction}\label{sec-intro}
+
+The State of Michigan Department of Education (MDE) is specifically
+interested in three outcome variables; ever smoked one cigarette, every
+smoked marijuana, and age when first approach to smoke cigarettes or
+marijuana. Moreover, MDE provided us with expected levels of precision
+means and coefficient of variation (CV=0.05) shown in Table 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# build dataframe with inputs}
+\NormalTok{MI\_school\_samples }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{Outcome =} \FunctionTok{c}\NormalTok{(}\StringTok{"smoked\_cig"}\NormalTok{, }\StringTok{"smoked\_mj"}\NormalTok{, }\StringTok{"age\_approached"}\NormalTok{),}
+  \AttributeTok{type =} \FunctionTok{c}\NormalTok{(}\StringTok{"prop"}\NormalTok{, }\StringTok{"prop"}\NormalTok{, }\StringTok{"mean"}\NormalTok{),}
+  \AttributeTok{desire\_cv =} \FunctionTok{rep}\NormalTok{(.}\DecValTok{05}\NormalTok{, }\DecValTok{3}\NormalTok{),}
+  \AttributeTok{expect\_mean =} \FunctionTok{c}\NormalTok{(.}\DecValTok{25}\NormalTok{, .}\DecValTok{15}\NormalTok{, }\DecValTok{12}\NormalTok{),}
+\NormalTok{) }
+
+\NormalTok{MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{caption=}\StringTok{"Key Variables and Desired Levels of Precision "}\NormalTok{,}
+        \AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Outcome"}\NormalTok{, }\StringTok{"Type"}\NormalTok{, }\StringTok{"Desired CV"}\NormalTok{, }\StringTok{"Expected Mean"}\NormalTok{),  }
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}cccc@{}}
+\caption{Key Variables and Desired Levels of Precision}\tabularnewline
+\toprule\noalign{}
+Outcome & Type & Desired CV & Expected Mean \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Outcome & Type & Desired CV & Expected Mean \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+smoked\_cig & prop & 0.05 & 0.25 \\
+smoked\_mj & prop & 0.05 & 0.15 \\
+age\_approached & mean & 0.05 & 12.00 \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MI\_school\_samples }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}
+    \CommentTok{\# compute element variance}
+    \AttributeTok{var =} \FunctionTok{if\_else}\NormalTok{(type}\SpecialCharTok{==}\StringTok{"prop"}\NormalTok{, }\CommentTok{\# for proportions}
+\NormalTok{                               expect\_mean }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ expect\_mean), }
+                               \FunctionTok{if\_else}\NormalTok{(type}\SpecialCharTok{==}\StringTok{"mean"}\NormalTok{,}\CommentTok{\# for means}
+                                       \DecValTok{1}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, }\ConstantTok{NA}\NormalTok{)),}
+    \CommentTok{\# compute stand dev}
+    \AttributeTok{sd =} \FunctionTok{sqrt}\NormalTok{(var),}
+    \CommentTok{\# compute standard error}
+    \AttributeTok{se =}\NormalTok{ desire\_cv }\SpecialCharTok{*}\NormalTok{ expect\_mean,}
+    \CommentTok{\# compute desired sample variance}
+    \AttributeTok{V =}\NormalTok{ se}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{,}
+    \AttributeTok{SRS\_n =} \FunctionTok{round}\NormalTok{(var }\SpecialCharTok{/}\NormalTok{ V))}
+
+\NormalTok{MI\_school\_samples\_variance\_table }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples}
+\end{Highlighting}
+\end{Shaded}
+
+From the desired levels of precision, we can compute the desired simple
+random sample (SRS) sample sizes when CV =.05 as
+\(N = \frac{s^2}{se^2}\). We first must calculate the element variance
+for each key variable. For proportions we use \(\hat{p}(1-\hat{p})\),
+while for age we square the estimated standard deviation of 1,
+\(v(\bar{y}) = \sigma^2\). We then calculate the standard error as
+\(se(\hat{p}) = CV \times \hat{p}\). Finally, we estimate the desired
+sampling variance as
+\(var(\hat{p}) =  se(\hat{p})^2 \text{, where }  se(\hat{p}) = \sqrt{var(\hat{p})}\).
+We show these results in Appendix 1, and note that these desired levels
+of precision would lead to large differences in sample sizes for each
+target variable. Therefore, we may wish to consider a more complex
+survey design.
+
+\section{Sampling Design}\label{sec-meth}
+
+We employ a two-stage stratified cluster sampling design as it improve
+sample efficiency and representation by ensuring subgroups are included
+(i.e., stratification) while reducing costs and logistical challenges
+associated with sampling individuals across large geographic areas. In
+the first stage, random selection of schools (e.g., Primary Sampling
+Units {[}PSU{]}) are determined by proportionate allocation for each
+strata. The second stage randomly selects students (Secondary Selection
+Units {[}SSU{]}) from the selected school clusters within each region.
+
+The MDE provided the 2024 7th through 12th grade student headcount for
+each public and private school within each of the nine regions resulting
+in a target frame of \(830,138\) across \(2,443\) schools (78\% Public).
+Schools in the first stage will be selected with probability
+proportional to student body size (PPeS). The proportionate allocation
+\(M_h / \sum M_h\) where \(M_h\) is the total number of students in
+stratum \(h\), will be used to determine school number selection in the
+first stage. Appendix 2 presents for each of the 9 strata total
+students, number of schools, and proportionate allocation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{school\_frame }\OtherTok{\textless{}{-}} \FunctionTok{read\_xls}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(repo\_path, }\StringTok{"MI\_school\_frame\_head\_counts.xls"}\NormalTok{))}
+
+
+\CommentTok{\# region counts}
+\NormalTok{strata\_Prop\_allocate }\OtherTok{\textless{}{-}}\NormalTok{ school\_frame }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{reframe}\NormalTok{(}\AttributeTok{M\_h =} \FunctionTok{sum}\NormalTok{(tot\_all), }\CommentTok{\# total of students in stratum}
+         \AttributeTok{N\_h =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# total of schools in stratum}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{prop\_allocation =}\NormalTok{ M\_h}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(M\_h)) }
+\end{Highlighting}
+\end{Shaded}
+
+We obtained design effects (DEFF) estimates (DEFF\_cig=2.5,
+DEFF\_mj=2.0, DEFF\_age=1.7) from a similar pilot study of 7,500
+students based on 150 schools with 50 students each, and based on these
+we estimate the rate of homogeneity \(roh\) for each target variable. We
+use the provided DEFFs to estimate \(roh\) as
+\(\hat{roh} = \frac{DEFF-1}{m-1}\), where \(m\) is the total sampled
+students in the pilot study, to consider alternative cluster sample
+designs along with cost considerations. Appendix 3 provides the \(roh\)
+estimate for each target variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nm }\OtherTok{\textless{}{-}} \DecValTok{7500}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{150}
+\NormalTok{m }\OtherTok{\textless{}{-}}\NormalTok{ nm }\SpecialCharTok{/}\NormalTok{ n}
+
+\NormalTok{MI\_school\_samples }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# add deff and roh to our table}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{desire\_deff =} \FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\FloatTok{2.0}\NormalTok{, }\FloatTok{1.7}\NormalTok{),}
+         \CommentTok{\# compute roh}
+         \AttributeTok{roh =}\NormalTok{ (desire\_deff }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ (m }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{),}
+\NormalTok{         )}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{\emph{Sampling Within
+Budget}}{Sampling Within Budget}}\label{sampling-within-budget}
+
+Recall that our budget cost constraints as the cost per cluster as
+\(c_n = \$3,000\) and cost per student as \(c_m = \$50\), with a total
+budget constraint of \(C = \$500,000\). We can use the \(roh\)estimates
+along with these costs to estimate the optimum subsample size
+\(m_{opt}\) needed to achieve the desired precision as
+\(m_{opt} = \sqrt{\frac{c_n}{c_m} \frac{1-roh}{roh}}\). Note that since
+we have three target variables we also have three separate \(roh\)
+estimates and thus three \(m_{opt}\) estimates. Similarly, we can use
+\(m_{opt}\) to estimate the number of schools \(n_{opt}\) to sample,
+\(n_{opt} = \frac{C}{c_n + m_{opt} \times c_m}\) . Finally, we compute
+new DEFF for each variable as \(roh\) is portable and since we already
+computed \(m_{opt}\) as \(DEFF_{new} = 1 + (m_{opt} - 1) \times roh\).
+By multiplying \(m_{opt} \times n_{opt}\) for each variable we also get
+the total subsample size, as well as compute the total cost using
+\(n_{opt} \times c_n + n_{opt} \times m_{opt} \times c_m\). Table 2
+shows for each target variable \(m_{opt}\), \(n_{opt}\), \(DEFF_{new}\),
+total subsample size denoted by \(total_{nm}\), and the total cost.
+Notice that our \(DEFF_{new}\) estimates are close to those from the
+pilot study since again we used these to compute \(roh\) which is
+portable for estimating new design effects.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c\_n }\OtherTok{=} \DecValTok{3000} \CommentTok{\# cost per cluster}
+\NormalTok{c\_m }\OtherTok{=} \DecValTok{50} \CommentTok{\# cost per element within cluster}
+\NormalTok{C }\OtherTok{=} \DecValTok{500000} \CommentTok{\# total budget}
+
+\NormalTok{MI\_school\_samples }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}
+    \CommentTok{\# compute optimum m size}
+    \AttributeTok{m\_opt =} \FunctionTok{sqrt}\NormalTok{( (c\_n }\SpecialCharTok{/}\NormalTok{ c\_m) }\SpecialCharTok{*}\NormalTok{ ( (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{roh)}\SpecialCharTok{/}\NormalTok{roh) ),}
+    \AttributeTok{n\_opt =}\NormalTok{ C }\SpecialCharTok{/}\NormalTok{ (c\_n }\SpecialCharTok{+}\NormalTok{ m\_opt }\SpecialCharTok{*}\NormalTok{ c\_m),}
+    \CommentTok{\# compute new deff}
+    \AttributeTok{deff\_new =} \DecValTok{1} \SpecialCharTok{+}\NormalTok{ (m\_opt}\DecValTok{{-}1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ roh,}
+     \CommentTok{\# compute total SSU}
+    \AttributeTok{total\_nm =}\NormalTok{ m\_opt }\SpecialCharTok{*}\NormalTok{ n\_opt)}
+
+\NormalTok{MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(Outcome, m\_opt, n\_opt, deff\_new, total\_nm) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cost =}\NormalTok{ (c\_n }\SpecialCharTok{*}\NormalTok{ n\_opt) }\SpecialCharTok{+}\NormalTok{ (c\_m }\SpecialCharTok{*}\NormalTok{ n\_opt }\SpecialCharTok{*}\NormalTok{ m\_opt),}
+         \AttributeTok{cost =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{dollar}\NormalTok{(cost),}
+         \AttributeTok{Outcome =} \FunctionTok{ifelse}\NormalTok{(Outcome }\SpecialCharTok{==} \StringTok{"age\_approached\_to\_smoke"}\NormalTok{, }
+                          \StringTok{"age\_smoke"}\NormalTok{, Outcome),}
+         \AttributeTok{Option =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{caption=}\StringTok{"Estimating New DEFF and Total Cost"}\NormalTok{,}
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2162}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1081}}@{}}
+\caption{Estimating New DEFF and Total Cost}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Outcome
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+m\_opt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+n\_opt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+deff\_new
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+total\_nm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Option
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Outcome
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+m\_opt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+n\_opt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+deff\_new
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+total\_nm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Option
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+smoked\_cig & 43.58899 & 96.53536 & 2.303745 & 4207.879 & \$500,000 &
+1 \\
+smoked\_mj & 53.66563 & 87.97734 & 2.074809 & 4721.360 & \$500,000 &
+2 \\
+age\_approached & 64.34283 & 80.42281 & 1.904898 & 5174.631 & \$500,000
+& 3 \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# note, 88 * c\_n + 88 * 53 * c\_m = $497,200}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{\emph{Evaluating Alternative Clustering
+Designs}}{Evaluating Alternative Clustering Designs}}\label{evaluating-alternative-clustering-designs}
+
+We have the possability of three clustering design options to choose
+from based on the target variables. Using the \(m_{opt}\) values from
+Table 2 as our three options, we iterate over each set of target
+variables using these values to recompute for each target variable a new
+design effect and evaluate the estimated sampling variance for each
+design. We estimate the SRS sampling variance as
+\(var_{srs} = \frac{var}{total_{nm} - 1}\) where var is the sampling
+variance calculated from the pilot study and the denominator is the
+degrees of freedom. Additionally, we estimate the sampling variance for
+the clustering design as \(var_{crs} = var_{srs} \times deff_{new}\).
+After estimating \(var_{crs}\), we can square it to estimate a standard
+error, \(se=\sqrt{var_{crs}}\) to use to estimate 95\% confidence
+intervals for the estimated means. Additionally, in our evaluation of
+\(m_{opt}\) we can determine if the estimated sampling variance from the
+complex design is smaller than what is desired from MDE; therefore,
+Appendix 4 shows sampling variances, standard errors, confidence
+intervals, and a variance check (e.g., ``Y'' = yes if \textless= to
+desired sampling variance) for each target variable using the
+\(m_{opt}\) options.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# total pop}
+\NormalTok{N }\OtherTok{\textless{}{-}}\NormalTok{ school\_frame }\SpecialCharTok{|\textgreater{}} \FunctionTok{tally}\NormalTok{(tot\_all) }\SpecialCharTok{|\textgreater{}} \FunctionTok{pull}\NormalTok{()}
+
+\CommentTok{\# optimum n}
+\NormalTok{total\_nm }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{2}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# second design option }
+  \FunctionTok{summarise}\NormalTok{(m\_opt}\SpecialCharTok{*}\NormalTok{n\_opt) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{()}
+
+\NormalTok{samp\_frac }\OtherTok{\textless{}{-}}\NormalTok{ total\_nm }\SpecialCharTok{/}\NormalTok{ N}
+\end{Highlighting}
+\end{Shaded}
+
+We determine that option 2 has reasonable estimated design effects
+comparable to those from the pilot study as well as it is the only
+option to pass the estimated sampling variance check we designed. Option
+2 with \(m_{opt} = 53, n_{opt} = 88\) would cost a total of \$497,200.
+Since the total student population is 830138 and our now target sample
+is 4721 we can estimate the sampling fraction to be \(f = n/N\) =
+0.0056874. The sampling fraction is the ratio of the sample size to the
+population size, and this estimate translates to the sample comprises
+approximately 0.57\% of the total student population. In this case, the
+sampling fraction is low and the finite population correction factor is
+not needed for calculating variances to adjust for the fact that
+sampling without replacement from a finite population reduces
+variability compared to sampling from an infinite population.
+
+\subsection{\texorpdfstring{\emph{Non-Response
+Adjustments}}{Non-Response Adjustments}}\label{non-response-adjustments}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# response rates}
+\NormalTok{school\_rr }\OtherTok{\textless{}{-}}\NormalTok{ .}\DecValTok{30}
+\NormalTok{student\_rr }\OtherTok{\textless{}{-}}\NormalTok{ .}\DecValTok{70}
+\CommentTok{\# Given values}
+\NormalTok{n\_opt }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{2}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{select}\NormalTok{(n\_opt) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{() }\SpecialCharTok{/}\NormalTok{ school\_rr}
+
+\NormalTok{m\_opt }\OtherTok{\textless{}{-}}\NormalTok{ MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{2}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{select}\NormalTok{(m\_opt) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{() }\SpecialCharTok{/}\NormalTok{ student\_rr}
+\end{Highlighting}
+\end{Shaded}
+
+The MDE anticipates 30\% school response rates and 70\% among students;
+therefore, we adjust the number of schools and within-school target by
+dividing\(m_{opt} \times RR_{student} = 53.6766 \div .70\) = 76.6651878
+students and for schools
+\(n_{opt} \times RR_{schools} =  87.9689 \div .30\) = 293.2578028. We
+use these values to allocate the number of clusters for each strata
+based on the proportion allocated we calculated.
+
+\section{Stage 1 Selection}\label{stage-1-selection}
+
+We consider stratified PPeS selection of schools from each strata by
+first sorting the list of schools to achieve implicit stratification. We
+sort by taking the number of 9th through 12th grade for each school
+divided by the total student body and descending order, and in this way
+we hypothesize that schools with older students are more likely to be
+positively associated with the target variables. For each strata \(h\)
+we assign our adjusted \(n_{opt} \times proportionate \_ allocation\)
+estimated earlier to calculate the number of schools to sample, denoted
+as \(n_h\) in Appendix 5. We use \(n_h\) to calculated in this Table the
+sampling interval \(k_h = \frac{\sum_{i \ in h} MOS_{hi}}{n_h}\) where
+\(MOS_{hi}\) is the measure of size (MOS), total student head-count, for
+each school \(i\) in strata \(h\). The \(k_h\) parameter is an important
+component of systematic sampling to determine how frequently units are
+selected from an ordered list. We randomly select a number between 1 and
+\(k_h\) for selecting schools from the list, denoted as \(RN\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{9999}\NormalTok{) }
+
+\CommentTok{\# Compute proportional allocation of clusters to each stratum}
+\NormalTok{region\_summary }\OtherTok{\textless{}{-}}\NormalTok{ strata\_Prop\_allocate }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# Ensure at least 1 cluster per}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{n\_h =}\NormalTok{ n\_opt }\SpecialCharTok{*}\NormalTok{ prop\_allocation,}
+                     \AttributeTok{N\_h =} \FunctionTok{as.double}\NormalTok{(N\_h)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{reframe}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.double), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{sum}\NormalTok{(.x))) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{k\_h =}\NormalTok{ M\_h }\SpecialCharTok{/} \FunctionTok{round}\NormalTok{(n\_h),) }\SpecialCharTok{|\textgreater{}}    \CommentTok{\# zone size}
+  \CommentTok{\# create random start values}
+  \FunctionTok{rowwise}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{RN =} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{k\_h, }\DecValTok{1}\NormalTok{)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{ungroup}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+For each strata we use the random start to select the first school, and
+for stratum with more than one selection we use
+\(RN, RN+k_h, RN+2k_h,...,RN +(n_h-1)\) until we satisfy \(n_h\)
+selection. Our minimum MOS 76.67 is also our \(m_{opt}\) and we use it
+here to determine the minimum number of students in each selected school
+required and if this is not satisfied we perform post-selection linkage.
+The linking is done by first selecting the number of schools in each
+strata. When the next units on the list do not meet the sufficient MOS
+required we move forward in the list until the first unit that meets the
+minimum requirement is achieved. For all the units that did not meet the
+requirement they are cumulated backwards until a linked unit of minimum
+sufficient size is created. We do this process for all strata. Appendix
+6 shows for each strata the total number of clusters, how many totaled
+schools linked and the total number of students.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# linkings schools}
+\NormalTok{sample\_selected }\OtherTok{\textless{}{-}} \FunctionTok{read\_xlsx}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(repo\_path, }\StringTok{"sample\_selected.xlsx"}\NormalTok{))}
+
+\CommentTok{\# Required Students per School (m\_h\_star) to Maintain EPSEM:}
+\NormalTok{region\_summary }\OtherTok{\textless{}{-}}\NormalTok{ region\_summary }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{m\_h\_star=}\FunctionTok{c}\NormalTok{(samp\_frac}\SpecialCharTok{*}\NormalTok{k\_h))}
+
+
+\NormalTok{region\_min\_MOS }\OtherTok{\textless{}{-}}\NormalTok{ region\_summary }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{min\_MOS2 =} \FunctionTok{ceiling}\NormalTok{(m\_h\_star }\SpecialCharTok{/}  \FloatTok{0.7}\NormalTok{)  }\CommentTok{\# Total response rate = 0.21, expanded sample size}
+\NormalTok{  )}
+
+\CommentTok{\# Processing schools by region and generating clusters of links}
+\NormalTok{linked\_schools }\OtherTok{\textless{}{-}}\NormalTok{ sample\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(region\_min\_MOS, }\AttributeTok{by =} \StringTok{"Region"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}  \CommentTok{\# Combined Minimum MOS}
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \CommentTok{\# Initialize cumulative MOS and link tags}
+    \AttributeTok{cumulative\_mos =} \FunctionTok{cumsum}\NormalTok{(tot\_all),}
+    \AttributeTok{need\_link =} \FunctionTok{if\_else}\NormalTok{(tot\_all }\SpecialCharTok{\textless{}}\NormalTok{ min\_MOS2, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+    \CommentTok{\# Dynamic generation of cluster IDs: linking when cumulative MOS is insufficient}
+    \AttributeTok{cluster\_id =} \FunctionTok{cumsum}\NormalTok{(}
+      \FunctionTok{if\_else}\NormalTok{(}
+\NormalTok{        cumulative\_mos }\SpecialCharTok{{-}} \FunctionTok{lag}\NormalTok{(cumulative\_mos, }\AttributeTok{default =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\textgreater{}=}\NormalTok{ min\_MOS2 }\SpecialCharTok{|} \FunctionTok{row\_number}\NormalTok{() }\SpecialCharTok{==} \DecValTok{1}\NormalTok{,}
+        \DecValTok{1}\NormalTok{, }\DecValTok{0}
+\NormalTok{      )}
+\NormalTok{    )}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ungroup}\NormalTok{()}
+\CommentTok{\# Summarize the total MOS for each cluster and check for compliance}
+\NormalTok{cluster\_summary }\OtherTok{\textless{}{-}}\NormalTok{ linked\_schools }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Region, cluster\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{total\_mos =} \FunctionTok{sum}\NormalTok{(tot\_all),}
+    \AttributeTok{schools =} \FunctionTok{toString}\NormalTok{(BCODE),}
+    \AttributeTok{min\_MOS2 =} \FunctionTok{first}\NormalTok{(min\_MOS2),}
+    \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{sufficient =} \FunctionTok{if\_else}\NormalTok{(total\_mos }\SpecialCharTok{\textgreater{}=}\NormalTok{ min\_MOS2, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"No"}\NormalTok{)}
+\NormalTok{  )}
+\CommentTok{\# Output clusters that need to be relinked (total MOS still insufficient)}
+\NormalTok{clusters\_to\_relink }\OtherTok{\textless{}{-}}\NormalTok{ cluster\_summary }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(sufficient }\SpecialCharTok{==} \StringTok{"No"}\NormalTok{)}
+
+\CommentTok{\# Recursive linking until all clusters are up to standard}
+\ControlFlowTok{while}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(clusters\_to\_relink) }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) \{}
+\NormalTok{  linked\_schools }\OtherTok{\textless{}{-}}\NormalTok{ linked\_schools }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}
+      \AttributeTok{cluster\_id =} \FunctionTok{if\_else}\NormalTok{(}
+\NormalTok{        cluster\_id }\SpecialCharTok{\%in\%}\NormalTok{ clusters\_to\_relink}\SpecialCharTok{$}\NormalTok{cluster\_id,}
+\NormalTok{        cluster\_id }\SpecialCharTok{+} \DecValTok{1}\NormalTok{,  }\CommentTok{\# Merge to the next cluster}
+\NormalTok{        cluster\_id}
+\NormalTok{      )}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{ungroup}\NormalTok{()}
+  
+  \CommentTok{\# Summary of recomputation clusters}
+\NormalTok{  cluster\_summary }\OtherTok{\textless{}{-}}\NormalTok{ linked\_schools }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(Region, cluster\_id) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{summarise}\NormalTok{(}
+      \AttributeTok{total\_mos =} \FunctionTok{sum}\NormalTok{(tot\_all),}
+      \AttributeTok{schools =} \FunctionTok{toString}\NormalTok{(BCODE),}
+      \AttributeTok{min\_MOS2 =} \FunctionTok{first}\NormalTok{(min\_MOS2),}
+      \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sufficient =} \FunctionTok{if\_else}\NormalTok{(total\_mos }\SpecialCharTok{\textgreater{}=}\NormalTok{ min\_MOS2, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"No"}\NormalTok{))}
+  
+\NormalTok{  clusters\_to\_relink }\OtherTok{\textless{}{-}}\NormalTok{ cluster\_summary }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(sufficient }\SpecialCharTok{==} \StringTok{"No"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Stage 2 Selection}\label{stage-2-selection}
+
+We assume rosters are made available by the school administration at the
+time of data collection. These rosters are ordered and formatted
+uniformly to facilitate systematic sampling. To maintain equal
+probability of selection (epsem) across all strata, we computed the
+required number of students to be sampled per selected school, denoted
+as \(m^*_h\) , based on the within-strata sampling fraction \(f_h\),
+which is the same as the overall sampling fraction \(f\) for all \(h\),
+and the stratum-specific PPS sampling interval \(k_h\) as follows,
+\(f_h = \frac{n_h MOS_{hi} }{\sum_{i \in h} MOS{hi} } \frac{m^*_h}{MOS_{hi}} = \frac{n_h m^*_h}{\sum_{e \in h}MOS_{hi}} \Rightarrow m^*_h = f \times k_h\).
+This ensures that when each school is selected with probability
+proportional to its MOS and then students are sampled within school at a
+fixed rate \(\frac{m^*_h}{MOS_{hi}}\), the overall inclusion probability
+for any student is,
+\(\pi_{i} = \frac{n_h \times MOS_{hi}}{\sum MOS_{hi}} \times \frac{m^*_h}{MOS_{hi}} = \frac{n_h m^*_h}{\sum MOS_h}\).
+Each student has the same selection probability within the state and
+within region \(h\), satisfying the epsem condition. Table 3 summarizes
+the first stage stratification and selection for two strata. The
+tolerated minimum number of students per school is estimated as
+\(m^*_h\) divided by the expected student response rate of 0.70 and is
+denoted as b\_h in the table. Additionally, we compute the sampling
+interval for each stratum to achieve epsem, as well as show the random
+start used to select schools.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{linked\_schools }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(Region }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{reframe}\NormalTok{(}\AttributeTok{f\_h =}  \FunctionTok{max}\NormalTok{((n\_h }\SpecialCharTok{*}\NormalTok{ m\_h\_star) }\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(MOS)),}
+         \AttributeTok{MOS\_h =} \FunctionTok{sum}\NormalTok{(MOS), }
+         \AttributeTok{n\_h =} \FunctionTok{max}\NormalTok{(n\_h),}
+         \AttributeTok{b\_h =} \FunctionTok{max}\NormalTok{(m\_h\_star }\SpecialCharTok{/} \FloatTok{0.70}\NormalTok{),}
+         \AttributeTok{k\_h =} \FunctionTok{max}\NormalTok{(k\_h), }
+         \AttributeTok{RN =} \FunctionTok{max}\NormalTok{(RN)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{caption=}\StringTok{"Sampling Interval for Two Strata,"}\NormalTok{,}
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ccccccc@{}}
+\caption{Sampling Interval for Two Strata,}\tabularnewline
+\toprule\noalign{}
+Region & f\_h & MOS\_h & n\_h & b\_h & k\_h & RN \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Region & f\_h & MOS\_h & n\_h & b\_h & k\_h & RN \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+3 & 0.0321459 & 1552 & 3.049021 & 23.37538 & 2877.0 & 1321 \\
+4 & 0.0306724 & 772 & 1.715096 & 19.72323 & 2427.5 & 131 \\
+\end{longtable}
+
+\subsection{\texorpdfstring{\emph{Undersized Schools
+Linking}}{Undersized Schools Linking}}\label{undersized-schools-linking}
+
+In cases where a selected school had fewer students than the desired
+cluster size \(m^*_h\), the within-school sampling rate would exceed
+1.0, making the design unfeasible. To address this, and to ensured that
+the effective number of completed questionnaires per school meets the
+targets \(m^*_h\), we linked undersized schools with nearby schools when
+their MOS was less than \(\frac{m^*_h}{r}\), where \(r\) is the expected
+student response rate (70\%). This operational rule preserves
+feasibility without altering theoretical inclusion probabilities. The
+within-school sampling rate remains \(\frac{m^*_h}{MOS_{hi}}\),
+maintaining epsem across students. For example, 5 small schools in
+Region 4 were linked to form a cluster of 10 meeting the required sample
+size of 19.729. Note that no oversize schools were identified that
+required splitting, and all selected schools acceptable size or linked
+as needed. Appendix 7 presents the within school sampling interval for
+the two selected strata in Table 3.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{final\_output }\OtherTok{\textless{}{-}}\NormalTok{ linked\_schools }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(Region, cluster\_id) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{Selection\_Number =} \FunctionTok{cur\_group\_id}\NormalTok{(),}
+    \AttributeTok{Cluster\_Cumulative\_Mos =} \FunctionTok{sum}\NormalTok{(tot\_all),}
+    \AttributeTok{Within\_school\_interval =} \FunctionTok{sum}\NormalTok{(tot\_all) }\SpecialCharTok{/} \FunctionTok{first}\NormalTok{(m\_h\_star),}
+    \AttributeTok{Schools\_in\_Cluster =} \FunctionTok{paste}\NormalTok{(BCODE, }\AttributeTok{collapse =} \StringTok{", "}\NormalTok{),}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(Region, Selection\_Number) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}
+\NormalTok{    Selection\_Number,}
+    \AttributeTok{Region =}\NormalTok{ Region, }
+    \AttributeTok{School =}\NormalTok{ BCODE,}
+\NormalTok{    Cluster\_Cumulative\_Mos,}
+    \AttributeTok{Cumulative\_Mos =}\NormalTok{ cumulative\_mos,}
+\NormalTok{    m\_h\_star,}
+\NormalTok{    Within\_school\_interval,}
+\NormalTok{    Schools\_in\_Cluster}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{distinct}\NormalTok{(Selection\_Number, }\AttributeTok{.keep\_all =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Student Selection Sample}\label{student-selection-sample}
+
+We implement the same systematic random sampling for the roster example
+of schools from Region 7. The randomly sampled middle school was from
+Region 7, the MOS for this school was 242, but the actual size is 219.
+This is the formula for calculating overall sampling fraction:
+\(f_h = \frac{n_h MOS_{hi} }{\sum_{i \in h} MOS{hi} } \frac{m^*_h}{MOS_{hi}}\).
+We got the expected sample size of 14.5313, and we rounded it to 15. To
+obtain the expected sample size, we first got the second-stage sampling
+rate is
+\(\text{Sampling Rate} = \frac{m^*_{7}}{MOS_7} = \frac{16.05737}{242} = 0.06635277\),
+and then multiplied the rate by the actual sample size.
+
+To get the sampling interval
+\(k_{hi} = MOS_{hi} / m^*_{h} = \frac{219}{15}\), we choose a random
+starting number between 1 and \(k_{hi}\), which is 14.6, then we use the
+k-interval 146 to conduct the systematic sampling. Then we selected the
+student at the random start position (14) and every \(k_{hi}\)-th
+student thereafter from the ordered roster. The roaster of names is in
+Appendix 8.
+
+\section{Estimation Plan}\label{estimation-plan}
+
+\subsection{\texorpdfstring{\emph{Pseudo
+Strata}}{Pseudo Strata}}\label{pseudo-strata}
+
+We propose using the paired difference method and create pseudo-strata
+to estimate variance by using Taylor Series Linearization. However,
+since we cannot form a pseudo-stratum from one cluster nor have an odd
+number of clusters, each pseudo-stratum requires at least two units. We
+combine strata that have odd-number clusters or just one cluster with
+the adjacent stratum. We collapse region 1 to 3, then we randomly group
+odd and even selections of units in the stratum into two sampling error
+computation units (SECUs). For regions 4 to 7 we also collapse them,
+then group them into two SECUs. For region 8 and region 9, we keep them
+the same, each with 2 SECUs. Thus, we get 8 pseudo-strata in total.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{final\_clusters }\OtherTok{\textless{}{-}}\NormalTok{ linked\_schools }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Region, cluster\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{linked\_schools =} \FunctionTok{paste}\NormalTok{(BCODE, }\AttributeTok{collapse =} \StringTok{", "}\NormalTok{),}
+    \AttributeTok{total\_mos =} \FunctionTok{sum}\NormalTok{(tot\_all),}
+    \AttributeTok{min\_MOS2 =} \FunctionTok{first}\NormalTok{(min\_MOS2),}
+    \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{status =} \FunctionTok{if\_else}\NormalTok{(total\_mos }\SpecialCharTok{\textgreater{}=}\NormalTok{ min\_MOS2, }\StringTok{"Valid"}\NormalTok{, }\StringTok{"Invalid"}\NormalTok{)}
+\NormalTok{  )}
+
+
+\NormalTok{linked\_schools }\OtherTok{\textless{}{-}}\NormalTok{ linked\_schools }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(}
+\NormalTok{    cluster\_summary }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(Region, cluster\_id, total\_mos),}
+    \AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"Region"}\NormalTok{, }\StringTok{"cluster\_id"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{\emph{Variance
+Estimation}}{Variance Estimation}}\label{variance-estimation}
+
+In this study, we need to estimate the proportion who have ever smoked,
+the proportion who have ever used marijuana, and the mean age at first
+use of cigarettes or marijuana. We did not consider using weight here
+since we maintain epsem design through the whole sampling process, which
+means every student has the same probability of being selected.However,
+in practice, we need to consider the response rate (e.g., the response
+rate among schools will be 30 percent, and the response rate among
+teenagers within schools will be 70 percent), which we should adjust our
+weight in design based on the response rate when conducting variance
+estimation. We decided to use Taylor Series Linearization to estimate
+the ratio estimator, which is approximated as
+\(\text{For all strata, } n_h = 2\).
+
+\[
+\text{var}(r) \approx \frac{1}{\hat{t}_x^2} \left[ \sum_h \text{var}(\hat{t}_{h,y}) + r^2 \sum_h \text{var}(\hat{t}_{h,x}) - 2r \sum_h \text{cov}(\hat{t}_{h,y}, \hat{t}_{h,x}) \right]
+\]
+
+The general estimator used is the ratio estimator:
+\(\hat{r} = \frac{\hat{t}_y}{\hat{t}_x}\)
+
+\begin{itemize}
+\item
+  \(\hat{t}_y\): estimated total for the numerator variable(e.g., number
+  of students who smoked)
+\item
+  \(\hat{t}_x\): estimated total for the denominator(e.g., total
+  eligible students)
+\item
+  \(\text{var}(\hat{t}_{h,y})\): variance of the numerator total within
+  stratum \(h\)
+\item
+  \(\text{var}(\hat{t}_{h,x})\):variance of the denominator total within
+  stratum \(h\)
+\item
+  \(\text{cov}(\hat{t}{h,y}, \hat{t}{h,x})\): covariance between
+  numerator and denominator totals within stratum \(h\)
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\emph{Confidence
+Interval}}{Confidence Interval}}\label{confidence-interval}
+
+A 95\% confidence interval for the estimated proportion and mean
+\(\hat{r}\) is given by:
+\(\hat{r} \pm t_{df, 0.975} \cdot \text{SE}(\hat{r})\), where,
+\(SE(\hat{r}) = \sqrt{\text{Var}(\hat{r})}\), and the df is equal to the
+number of pseudo strata which is 8. We conducted a simulation of the
+variance estimation of the proportion of students who ever smoked by
+applying the variance estimation formula, and we estimate the ratio to
+be 0.249946, SE = 0.000055, 95\% confidence interval {[}0.249815,
+0.250069{]}.
+
+\subsubsection{\texorpdfstring{\emph{Subclass
+Estimation}}{Subclass Estimation}}\label{subclass-estimation}
+
+For the 20\% subgroup, we used the same estimation and variance
+formulas, but applied them to a subset of the data that reflects 20\% of
+the full population(lower-income households). However, some SECUs may
+contain a very small number of students. The expected sample size for
+this subgroup is 944.2
+(\(\text{total sample size } \times prop = 4721 \times 0.2 = 944.2\)),
+and the expected subclass size per cluster is 15.33304 (
+\(E[b^{*}] \times subclass_{pct} = 76.66519 \times 0.20 = 15.33304\)).
+Besides, some strata contain only one SECU, and which cannot allow for
+variance estimation. If too few SECUs contribute, degrees of freedom
+could be too low, affecting reliability. Low-income students might not
+be spread evenly across all PSUs, and if only a small number of students
+in the subclass are sampled per stratum, variance estimates will be
+unstable or undefined. Therefore, the design might not accommodate
+accurate inference for the 20\% subclass group.
+
+In conclusion, this report details a robust and statistically efficient
+two-stage stratified cluster sampling design tailored to the MDE's need
+for monitoring teenage smoking and drug use. By employing stratification
+across educational regions, probability proportional to size selection
+for schools, and systematic sampling of students within schools, the
+design ensures representative statewide and regional estimates while
+adhering to budget constraints. The chosen parameters, including an
+anticipated sample of approximately 88 schools and 4,721 students, are
+optimized to achieve the required precision for key variables after
+accounting for anticipated non-response. The outlined procedures for
+selection, including linkage for smaller schools, and the comprehensive
+estimation plan provide a clear roadmap for survey implementation and
+analysis, ultimately delivering a cost-effective solution capable of
+generating the critical data required by the MDE.
+
+\newpage
+
+\section{Appendix 1: Estimating SRS Desired Sample
+Size}\label{appendix-1-estimating-srs-desired-sample-size}
+
+For each target variable alongside desired levels of means and sampling
+variance we display below the element variance, standard deviation and
+standard error, and sampling variance. We use the sampling variance as
+the denominator to determine SRS sampling size for each target variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MI\_school\_samples\_variance\_table }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\SpecialCharTok{:{-}}\DecValTok{4}\NormalTok{ ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Outcome"}\NormalTok{, }\StringTok{"Element Variance"}\NormalTok{, }\StringTok{"SD"}\NormalTok{, }\StringTok{"SE"}\NormalTok{, }\StringTok{"Variance"}\NormalTok{, }
+                      \StringTok{"SRS N"}\NormalTok{),  }
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2254}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1549}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1127}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1549}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0986}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Outcome
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Element Variance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SD
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Variance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SRS N
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+smoked\_cig & 0.1875 & 0.4330127 & 0.0125 & 0.0001563 & 1200 \\
+smoked\_mj & 0.1275 & 0.3570714 & 0.0075 & 0.0000562 & 2267 \\
+age\_approached & 1.0000 & 1.0000000 & 0.6000 & 0.3600000 & 3 \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 2: Proportionate Allocation Across
+Strata}\label{appendix-2-proportionate-allocation-across-strata}
+
+We compute a proportionate allocation of students across all nine
+strata. For instance, 45\% of students across 923 schools in this
+population come from stratum 9; therefore, the proportionate allocation
+for this stratum is .4514 in the below table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{strata\_Prop\_allocate }\SpecialCharTok{|\textgreater{}} 
+   \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Region"}\NormalTok{, }\StringTok{"Total Student"}\NormalTok{, }\StringTok{"Total Schools"}\NormalTok{, }
+                      \StringTok{"Proportionate Allocation"}\NormalTok{),  }
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule\noalign{}
+Region & Total Student & Total Schools & Proportionate Allocation \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 3561 & 20 & 0.0042896 \\
+2 & 5474 & 30 & 0.0065941 \\
+3 & 8631 & 33 & 0.0103971 \\
+4 & 4855 & 31 & 0.0058484 \\
+5 & 18907 & 80 & 0.0227757 \\
+6 & 33133 & 133 & 0.0399126 \\
+7 & 191992 & 644 & 0.2312772 \\
+8 & 188830 & 549 & 0.2274682 \\
+9 & 374755 & 923 & 0.4514370 \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 3: We Use Pilot Study DEFFs to Estimate
+roh}\label{appendix-3-we-use-pilot-study-deffs-to-estimate-roh}
+
+We estimate roh form the design effects provided from a similar pilot
+study. Below we show roh estimates for each target variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(Outcome, desire\_deff, roh) }\SpecialCharTok{|\textgreater{}}  
+    \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Outcome"}\NormalTok{, }\StringTok{"DEFF"}\NormalTok{, }\StringTok{"roh"}\NormalTok{),  }
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+Outcome & DEFF & roh \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+smoked\_cig & 2.5 & 0.0306122 \\
+smoked\_mj & 2.0 & 0.0204082 \\
+age\_approached & 1.7 & 0.0142857 \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 4: Evaluating Alternative Clustering
+Designs}\label{appendix-4-evaluating-alternative-clustering-designs}
+
+The table below presents the three optimum subsample sizes for each
+target variable alongside estimates of sampling variance, standard
+errors, and a variance check to determine which option is optimal for
+this design.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{map\_dfr}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{), }\ControlFlowTok{function}\NormalTok{(x)\{}
+  
+\NormalTok{  MI\_school\_samples }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# we can print projected total cost for n=50}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{m\_opt =}\NormalTok{ m\_opt[x], }\CommentTok{\# optimum m from first row}
+         \AttributeTok{n\_opt =}\NormalTok{ n\_opt[x],}
+         \AttributeTok{total\_nm =}\NormalTok{ m\_opt}\SpecialCharTok{*}\NormalTok{n\_opt,}
+         \CommentTok{\# calculate new deff}
+         \AttributeTok{deff\_new =} \DecValTok{1} \SpecialCharTok{+}\NormalTok{ (m\_opt}\DecValTok{{-}1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ roh,}
+         \CommentTok{\# recalcualte element variance}
+         \AttributeTok{var =} \FunctionTok{c}\NormalTok{(.}\DecValTok{24}\NormalTok{, .}\DecValTok{1275}\NormalTok{, }\DecValTok{9}\NormalTok{),}
+         \CommentTok{\# calcualte SRS variance}
+         \AttributeTok{var\_srs =}\NormalTok{  var }\SpecialCharTok{/}\NormalTok{ (total\_nm }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{),}
+         \CommentTok{\# calculate complex design variance}
+         \AttributeTok{var\_crs =}\NormalTok{ var\_srs }\SpecialCharTok{*}\NormalTok{ deff\_new,}
+          \CommentTok{\# compute confidence intervals}
+         \AttributeTok{se =} \FunctionTok{sqrt}\NormalTok{(var\_crs),}
+         \AttributeTok{lower =}\NormalTok{ expect\_mean  }\SpecialCharTok{{-}} \FloatTok{1.96}\SpecialCharTok{*}\NormalTok{se,}
+         \AttributeTok{upper =}\NormalTok{ expect\_mean }\SpecialCharTok{+} \FloatTok{1.96}\SpecialCharTok{*}\NormalTok{se,}
+        \CommentTok{\# flag if var\_crs is lower or = to desired sampling var}
+         \AttributeTok{var\_ck =} \FunctionTok{ifelse}\NormalTok{(var\_crs }\SpecialCharTok{\textless{}=}\NormalTok{ V, }\StringTok{"Y"}\NormalTok{, }\StringTok{"N"}\NormalTok{),}
+        \AttributeTok{Option =}\NormalTok{ x,}
+\NormalTok{  ) }
+    
+  
+\NormalTok{\}) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(Outcome, Option, deff\_new, var\_srs, var\_crs, se, lower, upper, var\_ck) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate\_at}\NormalTok{(}\DecValTok{3}\SpecialCharTok{:}\DecValTok{8}\NormalTok{, round, }\DecValTok{6}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1702}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0851}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1064}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1064}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1064}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1064}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1170}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1170}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0851}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Outcome
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Option
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+deff\_new
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+var\_srs
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+var\_crs
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+se
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+lower
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+upper
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+var\_ck
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+smoked\_cig & 1 & 2.303745 & 0.000057 & 0.000131 & 0.011464 & 0.227530 &
+0.272470 & Y \\
+smoked\_mj & 1 & 1.869163 & 0.000030 & 0.000057 & 0.007527 & 0.135248 &
+0.164752 & N \\
+age\_approached & 1 & 1.608414 & 0.002139 & 0.003441 & 0.058660 &
+11.885027 & 12.114973 & Y \\
+smoked\_cig & 2 & 2.612213 & 0.000051 & 0.000133 & 0.011525 & 0.227412 &
+0.272588 & Y \\
+smoked\_mj & 2 & 2.074809 & 0.000027 & 0.000056 & 0.007486 & 0.135327 &
+0.164673 & Y \\
+age\_approached & 2 & 1.752366 & 0.001907 & 0.003341 & 0.057802 &
+11.886707 & 12.113293 & Y \\
+smoked\_cig & 3 & 2.939066 & 0.000046 & 0.000136 & 0.011676 & 0.227114 &
+0.272886 & Y \\
+smoked\_mj & 3 & 2.292711 & 0.000025 & 0.000057 & 0.007517 & 0.135267 &
+0.164733 & N \\
+age\_approached & 3 & 1.904898 & 0.001740 & 0.003314 & 0.057565 &
+11.887172 & 12.112828 & Y \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 5: Strata Cluster Selection, Sampling
+Interval}\label{appendix-5-strata-cluster-selection-sampling-interval}
+
+We calculate using the proportionate allocation and n\_opt the number of
+clusters to select from each strata. Additionally, we compute sampling
+intervals and select random starts from 1 to k.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{region\_summary }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(Region, n\_h, k\_h, RN) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule\noalign{}
+Region & n\_h & k\_h & RN \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 1.257973 & 3561.000 & 3168 \\
+2 & 1.933767 & 2737.000 & 2310 \\
+3 & 3.049021 & 2877.000 & 1321 \\
+4 & 1.715096 & 2427.500 & 131 \\
+5 & 6.679161 & 2701.000 & 2122 \\
+6 & 11.704693 & 2761.083 & 2114 \\
+7 & 67.823846 & 2823.412 & 374 \\
+8 & 66.706826 & 2818.358 & 380 \\
+9 & 132.387420 & 2839.053 & 1673 \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 6: Linkage of Schools for Stage 1
+Selection}\label{appendix-6-linkage-of-schools-for-stage-1-selection}
+
+We show the number of clusters to be sampled for each strata along with
+the number of total linked schools and total number of students in each
+strata to use for random selection in the second stage.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{linked\_schools }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{reframe}\NormalTok{(}\AttributeTok{Clusters =} \FunctionTok{max}\NormalTok{(cluster\_id), }\AttributeTok{Schools =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{MOS =} \FunctionTok{sum}\NormalTok{(tot\_all)) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{kable}\NormalTok{(}\AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule\noalign{}
+Region & Clusters & Schools & MOS \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 1 & 1 & 430 \\
+2 & 2 & 2 & 933 \\
+3 & 3 & 3 & 1552 \\
+4 & 10 & 14 & 772 \\
+5 & 7 & 7 & 4400 \\
+6 & 12 & 12 & 8202 \\
+7 & 177 & 281 & 52360 \\
+8 & 154 & 224 & 59827 \\
+9 & 270 & 379 & 141443 \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 7: Within-School Sampling Interval for 2
+Strata}\label{appendix-7-within-school-sampling-interval-for-2-strata}
+
+We show the selection of schools below after selection for two strata
+and within-school sampling rate. The within-school sampling interval was
+calculated as the total student count divided by the target sample size
+(m\_h\_star). Students were then selected systematically using a random
+start between 1 and the interval.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{final\_output }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(Region }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(Selection\_Number, Region, School, Cumulative\_Mos, Within\_school\_interval)}\SpecialCharTok{|\textgreater{}} 
+   \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Selection Num."}\NormalTok{, }\StringTok{"Stratum"}\NormalTok{, }\StringTok{"School"}\NormalTok{, }\StringTok{"Cumul MOS"}\NormalTok{, }
+                        \StringTok{"Within School Interval"}\NormalTok{),}
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1324}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1176}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1618}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3529}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Selection Num.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+School
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Cumul MOS
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Within School Interval
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+4 & 3 & 01155 & 928 & 56.714138 \\
+5 & 3 & 01527 & 1355 & 26.095837 \\
+6 & 3 & 04860 & 1552 & 12.039531 \\
+7 & 4 & 02692 & 323 & 23.395186 \\
+8 & 4 & 06812 & 387 & 4.635579 \\
+9 & 4 & 08446 & 444 & 4.128562 \\
+10 & 4 & 08063 & 493 & 3.549115 \\
+11 & 4 & 03998 & 540 & 3.404253 \\
+12 & 4 & 04034 & 586 & 3.331822 \\
+13 & 4 & 09308 & 629 & 3.114529 \\
+14 & 4 & 02305 & 670 & 2.969668 \\
+15 & 4 & 08521 & 703 & 2.390220 \\
+16 & 4 & 07124 & 723 & 4.997733 \\
+\end{longtable}
+
+\newpage
+
+\section{Appendix 8: Students Selected From One
+School.}\label{appendix-8-students-selected-from-one-school.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 1:  Calculate how many students to sample}
+\NormalTok{f\_overall }\OtherTok{\textless{}{-}} \FloatTok{0.0057}
+\NormalTok{oneschool }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(repo\_path, }\StringTok{"schoolframe.csv"}\NormalTok{))}
+\NormalTok{MOS\_7 }\OtherTok{\textless{}{-}} \DecValTok{242}
+\NormalTok{ACT\_MOS\_7 }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(oneschool)}
+\NormalTok{m\_h\_start\_7 }\OtherTok{\textless{}{-}} \FloatTok{16.05798}
+
+\CommentTok{\# Step 2: Sampling rate}
+\NormalTok{sam\_rate }\OtherTok{\textless{}{-}}\NormalTok{ m\_h\_start\_7}\SpecialCharTok{/}\NormalTok{MOS\_7}
+
+\CommentTok{\# Step 3: Expected sample size}
+\NormalTok{m\_exp }\OtherTok{\textless{}{-}}\NormalTok{ sam\_rate }\SpecialCharTok{*}\NormalTok{ ACT\_MOS\_7}
+\NormalTok{m\_exp\_pra }\OtherTok{\textless{}{-}} \FunctionTok{ceiling}\NormalTok{(m\_exp)}
+\CommentTok{\# Step 2: Calculate sampling interval}
+\NormalTok{k\_interval }\OtherTok{\textless{}{-}}\NormalTok{ ACT\_MOS\_7 }\SpecialCharTok{/}\NormalTok{ m\_exp\_pra}
+\NormalTok{round\_k\_interval }\OtherTok{\textless{}{-}}\NormalTok{ k\_interval}\SpecialCharTok{*}\DecValTok{10}
+\NormalTok{round\_mos }\OtherTok{\textless{}{-}} \DecValTok{219}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{+}\DecValTok{9}
+
+
+
+\CommentTok{\# Step 3: Random start between 1 and interval}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{start }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{round\_k\_interval, }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Step 4: Select every \textasciigrave{}interval\textasciigrave{}{-}th student starting from \textasciigrave{}start\textasciigrave{}}
+\NormalTok{indices }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(start, }\AttributeTok{by =}\NormalTok{ round\_k\_interval, }\AttributeTok{length.out =}\NormalTok{ m\_exp\_pra)}
+\NormalTok{true\_indices }\OtherTok{\textless{}{-}} \FunctionTok{floor}\NormalTok{(indices}\SpecialCharTok{/}\DecValTok{10}\NormalTok{)}
+\NormalTok{sampled\_students }\OtherTok{\textless{}{-}}\NormalTok{ oneschool[true\_indices, ]}
+
+\CommentTok{\# View sampled students}
+\NormalTok{sampled\_students }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\DecValTok{3}\SpecialCharTok{:}\DecValTok{5}\NormalTok{), str\_to\_title) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{caption=}\StringTok{"Evaluating Alternative Clustering Designs"}\NormalTok{,}
+        \AttributeTok{align =} \StringTok{"c"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ccccc@{}}
+\caption{Evaluating Alternative Clustering Designs}\tabularnewline
+\toprule\noalign{}
+ID & Grade & class & Firstname & Lastname \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+ID & Grade & class & Firstname & Lastname \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 7 & Grady Vest & Magee & Monica L \\
+16 & 7 & Grady Vest & Schwartz & David Scott \\
+30 & 7 & Qixuan Li & Raynor & Gregory K \\
+45 & 7 & Qixuan Li & Franke & Mira A \\
+59 & 7 & Bill Pesau & Black & Stephen P \\
+74 & 7 & Andrew Bellman & Marbut & Joanne Renee \\
+89 & 7 & Andrew Bellman & Trecker & Molly A \\
+103 & 8 & Joe Williams & Dawson & Rebecca S \\
+118 & 8 & Joe Williams & Krosky & Paula Michele \\
+132 & 8 & Robert Mcfay & O Brien & Erin Terese \\
+147 & 8 & Joseph Miden & Kosove & Daniel Brian \\
+162 & 8 & Joseph Miden & Loevy & Debra L \\
+176 & 8 & James Vogner & Dworzanowski & Gregory William \\
+191 & 8 & James Vogner & Gatto & Julia Lynn \\
+205 & 8 & Jane Doe & Kaye & Peter Mitchell \\
+\end{longtable}
+
+
+
+
+\end{document}
