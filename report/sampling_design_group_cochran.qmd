@@ -2,7 +2,7 @@
 title: "Michigan Teen Smoking and Drug Use Survey Sample Design"
 format:
   jasa-pdf:
-    keep-tex: true  
+    keep-tex: false  
     journal:
       blinded: false
   jasa-html: default
@@ -32,7 +32,7 @@ pacman::p_load(readxl, writexl, MESS, # used for linking
 
 options(scipen=999)
 
-repo_path <- "D:/repos/UMD_classes_code/applied_sampling_SURV625/project/data/"
+repo_path <- "D:/repos/michigan-teen-survey-design//data/"
 ```
 
 ## Introduction {#sec-intro}

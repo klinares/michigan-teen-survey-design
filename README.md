@@ -125,7 +125,7 @@ quarto render project_code.qmd --to pdf
 `project_code.qmd` documents the incremental design decisions made across the semester:
 
 | Week | Task |
-|------------------------------------|------------------------------------|
+|----|----|
 | 4 | Element variances, desired sampling variances, SRS sample sizes |
 | 5 | Proportionate allocation across nine strata |
 | 6 | roh estimation from pilot study DEFFs; budget and cost parameters introduced |
