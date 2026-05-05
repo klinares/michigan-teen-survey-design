@@ -8,6 +8,8 @@ A reproducible two-stage stratified cluster sampling design for the Michigan Dep
 
 **Team Cochran:** Kevin Linares · Jianing Zou · Weishan Jiang · Xiaoqing Liu
 
+## Report -> [Michigan Teen Smoking and Drug Use Survey Sample Design](https://klinares.github.io/michigan-teen-survey-design/report/sampling_design_group_cochran.html)
+
 ------------------------------------------------------------------------
 
 ## Overview
